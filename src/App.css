@@ -1,5 +1,22 @@
+h1 {
+  text-align: center;
+}
 .square {
   height: 100px;
   width: 100px;
   border: 2px solid black;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.playagain {
+  display: flex;
+  margin: auto;
 }

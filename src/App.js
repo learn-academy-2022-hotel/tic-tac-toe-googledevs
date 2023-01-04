@@ -4,6 +4,7 @@ import './App.css'
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
+  
   let [playerOne, setPlayerOne] = useState(true)
   let [playerTwo, setPlayertwo] = useState(false)
 
@@ -29,34 +30,26 @@ const App = () => {
       return "error"
     }
   }
-    function calculateWinner(squares) {
-      const winningPatterns = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-      ]
-      for (let i = 0; i < winningPatterns.length; i++) {
-        const [a, b, c] = winningPatterns[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
 
+  const winningPatterns = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ]
+
+    for (let i = 0; i < winningPatterns.length; i++) {
+      const [a, b, c] = winningPatterns[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         alert("You Win");
       }
-      // winCon1: [squares[0], squares[1], squares[2]],
-      // winCon2: [squares[3], squares[4], squares[5]],
-      // winCon3: [squares[6], squares[7], squares[8]],
-      // winCon4: [squares[0], squares[3], squares[6]],
-      // winCon5: [squares[1], squares[4], squares[7]],
-      // winCon6: [squares[2], squares[5], squares[8]],
-      // winCon7: [squares[0], squares[4], squares[8]],
-      // winCon8: [squares[2], squares[4], squares[6]]
-
     }
-  return (
+
+    return (
     <>
       <h1>Tic Tac Toe</h1>
       <div className="board">
@@ -69,8 +62,10 @@ const App = () => {
           )
         })}
       </div>
+      <br />
+      <button onClick={() => window.location.reload(false)} className="playagain">Play Again!</button>
     </>
   )
 }
-}
+
 export default App
